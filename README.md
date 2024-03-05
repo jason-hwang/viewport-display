@@ -1,5 +1,8 @@
 # Window Size and Breakpoint Indicator Extension
 
+![464shots_so](https://github.com/jason-hwang/viewport-display/assets/4724172/af946695-07b5-42e5-a95b-d474afeaf59f)
+
+
 ## Description
 
 This browser extension is designed to display the current window size and corresponding Material-UI breakpoint in real-time. It's a useful tool for developers and designers who want to quickly see how their website or application responds to different viewport sizes and breakpoints. The extension automatically detects the window's width and updates the display with the current size in pixels and the associated Material-UI breakpoint (xs, sm, md, lg, xl).
