@@ -1,13 +1,13 @@
 // content.js
 function displayWindowSizeAndBreakpoint() {
   const sizeDiv = document.createElement("div");
+  adjustColorsBasedOnMode(sizeDiv);
   sizeDiv.style.position = "fixed";
   sizeDiv.style.bottom = "16px";
   sizeDiv.style.right = "16px";
-  sizeDiv.style.backgroundColor = "black";
-  sizeDiv.style.color = "white";
   sizeDiv.style.padding = "5px";
   sizeDiv.style.zIndex = "10000";
+  sizeDiv.style.opacity = "0.8";
   sizeDiv.style.fontSize = "10px";
   sizeDiv.style.fontWeight = "bold";
   sizeDiv.style.borderRadius = "8px";
@@ -17,6 +17,22 @@ function displayWindowSizeAndBreakpoint() {
 
   updateWindowSizeAndBreakpoint();
   window.addEventListener("resize", updateWindowSizeAndBreakpoint);
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => adjustColorsBasedOnMode(sizeDiv));
+}
+
+function adjustColorsBasedOnMode(element) {
+  const isDarkMode =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (isDarkMode) {
+    element.style.backgroundColor = "white";
+    element.style.color = "black";
+  } else {
+    element.style.backgroundColor = "black";
+    element.style.color = "white";
+  }
 }
 
 function getBreakpoint(width) {
