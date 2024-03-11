@@ -12,7 +12,6 @@ function displayWindowSizeAndBreakpoint() {
   sizeDiv.style.fontWeight = "bold";
   sizeDiv.style.borderRadius = "8px";
   sizeDiv.id = "window-size-display";
-  sizeDiv.style.pointerEvents = "none";
   document.body.appendChild(sizeDiv);
 
   updateWindowSizeAndBreakpoint();
@@ -20,6 +19,14 @@ function displayWindowSizeAndBreakpoint() {
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => adjustColorsBasedOnMode(sizeDiv));
+
+  sizeDiv.addEventListener("mouseenter", () => {
+    sizeDiv.style.opacity = "0";
+  });
+
+  sizeDiv.addEventListener("mouseleave", () => {
+    sizeDiv.style.opacity = "0.8";
+  });
 }
 
 function adjustColorsBasedOnMode(element) {
